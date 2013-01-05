@@ -3,7 +3,7 @@ from flask import Flask, url_for
 from flask import render_template
 from flask import request
 app = Flask(__name__)
-app.debug=True
+app.debug=False
 
 @app.route('/')
 def hello_world():
