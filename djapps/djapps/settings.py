@@ -1,4 +1,8 @@
 # Django settings for djapps project.
+import os, sys
+
+curpath = os.path.dirname(os.path.abspath(__file__))
+project_path = os.path.dirname(curpath)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -88,11 +92,11 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    #'django.middleware.common.CommonMiddleware',
-    #'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
-    #'django.contrib.auth.middleware.AuthenticationMiddleware',
-    #'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -103,6 +107,7 @@ ROOT_URLCONF = 'djapps.urls'
 WSGI_APPLICATION = 'djapps.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(project_path, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

@@ -32,7 +32,8 @@ application = get_wsgi_application()
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
 #
-from gevent.wsgi import WSGIServer
-http_server = WSGIServer(('0.0.0.0', 8099), application)
-http_server.serve_forever()
+if __name__ == '__main__':
+    from gevent.wsgi import WSGIServer
+    http_server = WSGIServer(('0.0.0.0', 8099), application)
+    http_server.serve_forever()
 

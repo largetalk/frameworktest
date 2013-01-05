@@ -34,11 +34,15 @@ def login():
     else:
         return 'login get'
 
-with app.test_request_context():
-    print(url_for('show_user_profile', username='xxxxxx'))
+@app.route('/t')
+def uset():
+    return render_template('loop_t.html')
+
+#with app.test_request_context():
+#    print(url_for('show_user_profile', username='xxxxxx'))
 
 if __name__ == '__main__':
-#    app.run()
-    from gevent.wsgi import WSGIServer
-    http_server = WSGIServer(('0.0.0.0', 5000), app)
-    http_server.serve_forever()
+    app.run(host='0.0.0.0')
+#    from gevent.wsgi import WSGIServer
+#    http_server = WSGIServer(('0.0.0.0', 5000), app)
+#    http_server.serve_forever()
