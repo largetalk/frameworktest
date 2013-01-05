@@ -42,7 +42,7 @@ def uset():
 #    print(url_for('show_user_profile', username='xxxxxx'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-#    from gevent.wsgi import WSGIServer
-#    http_server = WSGIServer(('0.0.0.0', 5000), app)
-#    http_server.serve_forever()
+#    app.run(host='0.0.0.0')
+    from gevent.wsgi import WSGIServer
+    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server.serve_forever()
