@@ -38,6 +38,10 @@ def login():
 def uset():
     return render_template('loop_t.html')
 
+@app.route('/empty')
+def empty():
+    return render_template('plain.html')
+
 #with app.test_request_context():
 #    print(url_for('show_user_profile', username='xxxxxx'))
 

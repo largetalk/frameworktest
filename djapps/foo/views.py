@@ -8,3 +8,6 @@ def home(request):
 def uset(request):
     num = range(1000)
     return render_to_response('loop_t.html', {'num':num})
+
+def empty_template(request):
+    return render_to_response('plain.html', {})
