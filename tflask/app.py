@@ -2,6 +2,7 @@ from __future__ import print_function
 from flask import Flask, url_for
 from flask import render_template
 from flask import request
+import time
 app = Flask(__name__)
 app.debug=False
 
@@ -25,7 +26,13 @@ def projects():
 
 @app.route('/about')
 def about():
-    return 'abou'
+    t1 = time.time()
+    for i in range(100000):
+        a = 'a'*100
+        b = 'b'*100
+        c = a+b
+    t2 = (time.time() - t1) * 1000
+    return 'hello from flask: %s ms'%t2
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
