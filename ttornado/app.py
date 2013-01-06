@@ -23,11 +23,11 @@ class MainHandler(tornado.web.RequestHandler):
 
 class LoopTempHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(jinja_env.get_template('loop_t.html').render())
+        self.write(jinja_env.get_template('loop_t.html').render({'time':time.time()}))
 
 application = tornado.web.Application([
-    (r"/", MainHandler),
     (r"/t", LoopTempHandler),
+    (r"/", MainHandler),
 ])
 
 if __name__ == "__main__":
