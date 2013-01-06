@@ -11,3 +11,6 @@ def uset(request):
 
 def empty_template(request):
     return render_to_response('plain.html', {})
+
+def big_render(request):
+    return render_to_response('big_render.html', {})

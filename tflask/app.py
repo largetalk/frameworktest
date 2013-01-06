@@ -42,6 +42,10 @@ def uset():
 def empty():
     return render_template('plain.html')
 
+@app.route('/bigrender')
+def bigrender():
+    return render_template('big_render.html')
+
 #with app.test_request_context():
 #    print(url_for('show_user_profile', username='xxxxxx'))
 
