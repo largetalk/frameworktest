@@ -9,6 +9,8 @@ start()
     cd tflask && nohup python app.py --port 8030 &
     echo 'start tornado'
     cd ttornado && nohup python app.py --port 8040 &
+    echo 'start django + tornado'
+    cd djapps && nohup python djapps/tornado_wsgi.py --port 8041 &
     echo 'start ok'
 }
 
@@ -18,6 +20,7 @@ stop()
     fuser -k -n tcp 8020
     fuser -k -n tcp 8030
     fuser -k -n tcp 8040
+    fuser -k -n tcp 8041
     echo 'stop ok'
 }
 
