@@ -15,6 +15,7 @@ framework.
 """
 import os
 import sys
+import argparse
 
 curpath = os.path.dirname(os.path.abspath(__file__))
 project_path = os.path.dirname(curpath)
@@ -33,7 +34,14 @@ application = get_wsgi_application()
 # application = HelloWorldApplication(application)
 #
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='django wsgi args.')
+    parser.add_argument('--port', dest='port',  
+            action='store', type=int, metavar='P', default=8099,
+            help='wsgi start port.[default 8099]')
+    args = parser.parse_args()
+    port = args.port
+
     from gevent.wsgi import WSGIServer
-    http_server = WSGIServer(('0.0.0.0', 8099), application)
+    http_server = WSGIServer(('0.0.0.0', port), application)
     http_server.serve_forever()
 

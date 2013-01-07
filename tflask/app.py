@@ -3,6 +3,7 @@ from flask import Flask, url_for
 from flask import render_template
 from flask import request
 import time
+import argparse
 app = Flask(__name__)
 app.debug=False
 
@@ -24,8 +25,8 @@ def show_user_id(ppid):
 def projects():
     return 'projects'
 
-@app.route('/about')
-def about():
+@app.route('/calc')
+def calc():
     t1 = time.time()
     for i in range(100000):
         a = 'a'*100
@@ -41,8 +42,8 @@ def login():
     else:
         return 'login get'
 
-@app.route('/t')
-def uset():
+@app.route('/trender')
+def trender():
     return render_template('loop_t.html')
 
 @app.route('/empty')
@@ -58,6 +59,14 @@ def bigrender():
 
 if __name__ == '__main__':
 #    app.run(host='0.0.0.0')
+
+    parser = argparse.ArgumentParser(description='flask wsgi args.')
+    parser.add_argument('--port', dest='port',  
+            action='store', type=int, metavar='P', default=5000,
+            help='wsgi start port.[default 5000]')
+    args = parser.parse_args()
+    port = args.port
+
     from gevent.wsgi import WSGIServer
-    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server = WSGIServer(('0.0.0.0', port), app)
     http_server.serve_forever()

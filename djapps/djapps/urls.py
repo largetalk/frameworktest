@@ -6,10 +6,10 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^bigrender$', 'foo.views.big_render', name='big_render'),
+    url(r'^bigrender$', 'foo.views.bigrender', name='bigrender'),
     url(r'^empty$', 'foo.views.empty_template', name='empty_template'),
-    url(r'^t$', 'foo.views.uset', name='uset'),
-    url(r'^$', 'foo.views.home', name='home'),
+    url(r'^trender$', 'foo.views.trender', name='trender'),
+    url(r'^calc$', 'foo.views.calc', name='calc'),
     #url(r'^foo/', include('djapps.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
