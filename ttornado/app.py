@@ -24,11 +24,11 @@ class MainHandler(tornado.web.RequestHandler):
 
 class LoopTempHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(jinja_env.get_template('big_render.html').render({}))
+        self.write(jinja_env.get_template('loop_t.html').render({'time':time.time()}))
 
 class BigRenderHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(jinja_env.get_template('loop_t.html').render({'time':time.time()}))
+        self.write(jinja_env.get_template('big_render.html').render({}))
 
 application = tornado.web.Application([
     (r"/trender", LoopTempHandler),
