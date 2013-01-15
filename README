@@ -1,0 +1,7 @@
+=====================
+Framework Test
+=====================
+
+test django, flask , tornado framework
+combine with gevent, gunicorn, tornado wsgi server
+someone startup on PyPy
